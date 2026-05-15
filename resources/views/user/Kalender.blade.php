@@ -1,7 +1,7 @@
 @include('layout.header')
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css']) 
 
-<body class="bg-gray-100 font-poppins">
+<body class="bg-[#e3d8c6] font-poppins">
 
     <!-- Header Kalender -->
     <div class="bg-yellow-700 shadow-md mb-10">
@@ -115,7 +115,7 @@
             </div>
 
         </div>
-    </div>
+    </div> 
 
 </body>
 @include('layout.footer') <!-- include footer -->

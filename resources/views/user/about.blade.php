@@ -1,18 +1,17 @@
 @include('layout.header') <!-- navbar -->
 
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css']) 
-<body class="bg-gray-100 font-poppins">
-
+<body class="bg-black-100 font-poppins">
     <!-- Hero Section -->
     <section class="relative w-full h-[75vh] flex items-center justify-center text-center bg-black">
         <img src="{{ asset('img/caurasel2.png') }}" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="About Banner">
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-yellow-500 drop-shadow-xl animate-fadeInDown">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#d39932] drop-shadow-xl animate-fadeInDown">
                 Tentang Kami
             </h1>
             <p class="mt-6 text-lg md:text-xl text-gray-200 animate-fadeInUp">
-                Lebih dari sekadar perjalanan, kami menghadirkan <span class="font-semibold text-yellow-400">pengalaman</span> yang tak terlupakan.
+                Lebih dari sekadar perjalanan, kami menghadirkan <span class="font-semibold text-[#d39932]">pengalaman</span> yang tak terlupakan.
             </p>
         </div>
     </section>
@@ -34,13 +33,13 @@
                     Dengan tim berpengalaman, jaringan luas, dan pelayanan premium, kami telah dipercaya oleh ratusan pelanggan untuk menjelajah destinasi wisata terbaik.
                 </p>
                 <a href="{{ route('PaketWisata') }}" 
-                   class="inline-block mt-4 px-6 py-3 bg-yellow-500 text-black font-bold rounded-full shadow-lg hover:bg-yellow-600 transition transform hover:scale-105">
+                   class="inline-block mt-4 px-6 py-3 bg-yellow-500 text-white font-bold rounded-full shadow-lg hover:bg-yellow-600 transition transform hover:scale-105">
                     Jelajahi Paket Wisata
                 </a>
             </div>
             <div class="relative">
                 <img src="{{ asset('img/caurasel3.png') }}" alt="About Image" class="rounded-2xl shadow-2xl">
-                <div class="absolute -bottom-6 -right-6 bg-yellow-500 text-black px-6 py-4 rounded-xl shadow-xl font-bold text-lg">
+                <div class="absolute -bottom-6 -right-6 bg-yellow-500 text-white px-6 py-4 rounded-xl shadow-xl font-bold text-lg">
                     Arsygo Tour & Travel
                 </div>
             </div>

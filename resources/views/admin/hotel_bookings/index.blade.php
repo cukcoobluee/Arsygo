@@ -15,89 +15,117 @@
                     <th class="px-4 py-3 border">Check Out</th>
                     <th class="px-4 py-3 border text-left">Tipe Kamar</th>
                     <th class="px-4 py-3 border text-left max-w-[150px]">Catatan</th>
-                    <th class="px-4 py-3 border">Status</th>
+
+                    {{-- Tambahan Baru --}}
+                    <th class="px-4 py-3 border">Payment Status</th>
+                    <th class="px-4 py-3 border">Metode</th>
+                    <th class="px-4 py-3 border">Jumlah</th>
+                    <th class="px-4 py-3 border">Bukti</th>
+
                     <th class="px-4 py-3 border">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($bookings as $booking)
                     <tr class="text-center border-b even:bg-gray-50 hover:bg-gray-100 transition">
-                        <td class="px-4 py-2 text-left break-words">{{ $booking->hotel->nama ?? '-' }}</td>
-                        <td class="px-4 py-2 text-left break-words">{{ $booking->nama }}</td>
-                        <td class="px-4 py-2 text-left break-words">{{ $booking->email }}</td>
-                        <td class="px-4 py-2 text-left break-words">{{ $booking->telepon }}</td>
-                        <td class="px-4 py-2 text-center">{{ $booking->check_in }}</td>
-                        <td class="px-4 py-2 text-center">{{ $booking->check_out }}</td>
-                        <td class="px-4 py-2 text-center break-words ">{{ $booking->tipe_kamar }}</td>
 
-                        <!-- Catatan dengan Read More -->
+                        <td class="px-4 py-2 text-left">{{ $booking->hotel->nama ?? '-' }}</td>
+                        <td class="px-4 py-2 text-left">{{ $booking->nama }}</td>
+                        <td class="px-4 py-2 text-left">{{ $booking->email }}</td>
+                        <td class="px-4 py-2 text-left">{{ $booking->telepon }}</td>
+                        <td class="px-4 py-2">{{ $booking->check_in }}</td>
+                        <td class="px-4 py-2">{{ $booking->check_out }}</td>
+                        <td class="px-4 py-2">{{ $booking->tipe_kamar }}</td>
+
+                        {{-- Catatan --}}
                         <td class="px-4 py-2 text-left max-w-[150px] break-words">
                             @if(strlen($booking->catatan ?? '') > 5)
-                                <span id="note-{{ $booking->id }}" class="block overflow-hidden text-ellipsis" style="max-height:3em;">
+                                <span id="note-{{ $booking->id }}" class="block overflow-hidden" style="max-height:3em;">
                                     {{ Str::limit($booking->catatan, 100) }}
                                 </span>
-                                <button onclick="toggleReadMore({{ $booking->id }})" class="text-blue-600 text-sm underline ml-1">Read more</button>
+                                <button onclick="toggleReadMore({{ $booking->id }})" class="text-blue-600 text-xs underline ml-1">Read more</button>
                             @else
                                 {{ $booking->catatan ?? '-' }}
                             @endif
                         </td>
 
-                        <!-- Status -->
+                        {{-- Payment Status --}}
                         <td class="px-4 py-2">
                             <span class="px-2 py-1 rounded-lg text-xs font-semibold
-                                @if($booking->status == 'approved') bg-green-200 text-green-800
-                                @elseif($booking->status == 'pending') bg-yellow-200 text-yellow-800
+                                @if($booking->payment_status == 'paid') bg-green-200 text-green-800
+                                @elseif($booking->payment_status == 'unpaid') bg-yellow-200 text-yellow-800
                                 @else bg-red-200 text-red-800 @endif">
-                                {{ ucfirst($booking->status) }}
+                                {{ ucfirst($booking->payment_status) }}
                             </span>
                         </td>
 
-                        <!-- Aksi -->
+                        {{-- Payment Method --}}
+                        <td class="px-4 py-2">
+                            {{ $booking->payment_method ?? '-' }}
+                        </td>
+
+                        {{-- Total Pembayaran --}}
+                        <td class="px-4 py-2">
+                            {{ $booking->payment_amount ? 'Rp ' . number_format($booking->payment_amount, 0, ',', '.') : '-' }}
+                        </td>
+
+                        {{-- Bukti Pembayaran --}}
+                        <td class="px-4 py-2">
+                            @if($booking->payment_proof)
+                                <a href="{{ asset('storage/payment_proof/' . $booking->payment_proof) }}" 
+                                   target="_blank" class="text-blue-600 underline text-sm">
+                                    Lihat Bukti
+                                </a>
+                            @else
+                                -
+                            @endif
+                        </td>
+
+                        {{-- Aksi --}}
                         <td class="px-4 py-2">
                             <div class="flex items-center justify-center gap-2">
+
+                                {{-- Edit Booking --}}
                                 <a href="{{ route('admin.hotel-bookings.edit', $booking->id) }}" 
-                                   class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-lg transition" title="Edit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" 
-                                         class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                              d="M15.232 5.232l3.536 3.536M9 13l6.293-6.293a1 1 0 011.414 0l.586.586a1 1 0 010 1.414L11 15H9v-2z" />
-                                    </svg>
+                                   class="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-lg transition">
+                                    ✏️
                                 </a>
 
-                                <form action="{{ route('admin.hotel-bookings.destroy', $booking->id) }}" method="POST" 
+                                {{-- Delete --}}
+                                <form action="{{ route('admin.hotel-bookings.destroy', $booking->id) }}" 
+                                      method="POST" 
                                       onsubmit="return confirm('Yakin ingin menghapus booking ini?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition" title="Hapus">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5-4h4m-4 0a1 1 0 00-1 1v1h6V4a1 1 0 00-1-1m-4 0h4" />
-                                        </svg>
+                                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg">
+                                        🗑️
                                     </button>
                                 </form>
+
+                                {{-- Update Pembayaran --}}
+                                <a href="{{ route('admin.hotel-bookings.payment', $booking->id) }}"
+                                   class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg transition">
+                                   💳
+                                </a>
+
                             </div>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>
         </table>
 
-        <!-- Pagination -->
         <div class="p-4 flex justify-center border-t">
             {{ $bookings->onEachSide(1)->links('pagination.custom-amber') }}
         </div>
     </div>
 </div>
 
-<!-- Script Read More -->
 <script>
 function toggleReadMore(id) {
     const note = document.getElementById('note-' + id);
-    if(note.style.maxHeight === "none") {
-        note.style.maxHeight = "3em";
-    } else {
-        note.style.maxHeight = "none";
-    }
+    note.style.maxHeight = (note.style.maxHeight === "none") ? "3em" : "none";
 }
 </script>
 @endsection

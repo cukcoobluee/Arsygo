@@ -1,18 +1,18 @@
 @include('layout.header') <!-- navbar -->
 
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css']) 
-<body class="bg-gray-100 font-poppins">
+<body class="bg-[#e3d8c6] font-poppins">
 
     <!-- Hero Section -->
     <section class="relative w-full h-[75vh] flex items-center justify-center text-center bg-black">
         <img src="{{ asset('img/event.jpeg') }}" class="absolute inset-0 w-full h-full object-cover opacity-60" alt="About Banner">
         <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80"></div>
         <div class="relative z-10 max-w-4xl mx-auto">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-yellow-500 drop-shadow-xl animate-fadeInDown">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-[#d39932] drop-shadow-xl animate-fadeInDown">
                 Event Organizer
             </h1>
             <p class="mt-6 text-lg md:text-xl text-gray-200 animate-fadeInUp">
-                Lebih dari sekadar perjalanan, kami menghadirkan <span class="font-semibold text-yellow-400">pengalaman</span> yang tak terlupakan.
+                Lebih dari sekadar perjalanan, kami menghadirkan <span class="font-semibold text-[#d39932]">pengalaman</span> yang tak terlupakan.
             </p>
         </div>
     </section>
@@ -48,17 +48,17 @@
         <br>
 
         {{-- ============ LAYANAN EVENT ORGANIZER ============ --}}
-        <section class="w-full py-12 pb-20 bg-amber-400 rounded-2xl">
+        <section class="w-full py-12 pb-20 bg-[#d39932] rounded-2xl">
             <div class="container mx-auto text-center px-6 md:px-12 ">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-white">Layanan Event Organizer</h2>
                 <div class="relative max-w-full mx-auto ">
                     <div id="eoCarousel" class="flex overflow-x-auto space-x-6 scrollbar-hide py-4">
                         @foreach ([
-                            ['layanan1.jpg','Panggung & Dekorasi'],
-                            ['layanan2.jpg','MC & Talent'],
-                            ['layanan3.jpg','Dokumentasi'],
-                            ['layanan4.jpg','Venue & Catering'],
-                            ['layanan5.jpg','Wedding']
+                            ['highlight8.jpg','Corporate Event Organizer'],
+                            ['highlight6.jpg','Entertainment Organizer'],
+                            ['komsit3.png','Exhibition Organizer'],
+                            ['highlight3.jpg','MICE Organizer'],
+                            ['layanan5.jpg','Wedding Organizer']
                         ] as [$img, $title])
                             <div class="min-w-[220px] md:min-w-[250px] bg-white rounded-xl shadow-lg flex-shrink-0 hover:shadow-2xl transition transform hover:-translate-y-2">
                                 <img src="{{ asset('img/'.$img) }}" 
@@ -73,26 +73,28 @@
                     <!-- Tombol navigasi carousel -->
                     <button id="eoPrev" class="absolute top-1/2 left-0 -translate-y-1/2  text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/50 transition">❮</button>
                     <button id="eoNext" class="absolute top-1/2 right-0 -translate-y-1/2  text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/50 transition">❯</button>
+                {{-- ============ CTA WHATSAPP ============ --}}
+                <div class="container mt-7 mx-auto text-center px-6 md:px-12">
+                    <a href="https://wa.me/628122016796" target="_blank" 
+                    class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 
+                            text-white font-semibold px-8 py-4 rounded-full shadow-lg transition">
+                        <img src="{{ asset('img/whatsapp.png') }}" class="w-6 h-6"> 
+                        <span class="text-lg">Hubungi Kami via WhatsApp</span>
+                    </a>
                 </div>
             </div>
+            </div>
+            
         </section>
 
-        {{-- ============ CTA WHATSAPP ============ --}}
-        <section class="py-12 bg-white">
-            <div class="container mx-auto text-center px-6 md:px-12">
-                <a href="https://wa.me/628122016796" target="_blank" 
-                class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 
-                        text-white font-semibold px-8 py-4 rounded-full shadow-lg transition">
-                    <img src="{{ asset('img/whatsapp.png') }}" class="w-6 h-6"> 
-                    <span class="text-lg">Hubungi Kami via WhatsApp</span>
-                </a>
-            </div>
-        </section>
+        
 
         {{-- ============ EVENT HIGHLIGHTS ============ --}}
-        <section class="py-16 bg-white">
+        <section class="py-16 bg-[d39932]">
             <div class="container mx-auto text-center px-6 md:px-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12">Event Highlights</h2>
+                <h2 class="text-3xl md:text-4xl text-[#225d65] font-bold mb-12">Event Highlights
+                    <div class="w-50 mx-auto border-b-3 border-[#ae5238] mt-5"></div>
+                </h2>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                     @foreach (range(1,8) as $i)
                         <div class="bg-gray-200 h-40 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition">

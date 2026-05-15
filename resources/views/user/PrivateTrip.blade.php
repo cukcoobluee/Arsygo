@@ -2,7 +2,7 @@
 
 @section('content')
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css']) 
-<body class="bg-gray-100 font-poppins">
+<body class="bg-[#e3d8c6] font-poppins">
     <div class="w-full">
 
 
@@ -59,7 +59,7 @@
   
         <!-- Judul -->
         <div class="text-center md:text-left">
-          <p class="font-sans text-base sm:text-lg">Travel With</p>
+          <p class="font-poppins text-base sm:text-lg">Travel With</p>
           <h1 class="font-extrabold text-2xl sm:text-3xl md:text-4xl text-black drop-shadow-md mb-2">ArsyGo</h1>
           <div class="w-20 border-b-2 border-yellow-500 mx-auto md:mx-0"></div>
         </div>
@@ -67,11 +67,11 @@
         <!-- Toggle Button -->
         <div class="flex w-full sm:w-auto bg-gray-200 rounded-full shadow-md overflow-hidden">
           <a href="{{ route('PaketWisata') }}" 
-            class="px-4 sm:px-6 py-2 bg-yellow-500 text-white font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-l-full">
+            class="px-4 sm:px-6 py-2 text-gray-500 font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-full">
             Open Trip
           </a>
           <a href="{{ route('PrivateTrip') }}" 
-            class="px-4 sm:px-6 py-2 text-gray-500 font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-r-full">
+            class="px-4 sm:px-6 py-2 bg-[#d39932] text-white font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-full">
             Private Trip
           </a>
         </div>
@@ -81,58 +81,104 @@
   </div>
   
   <!-- Destinations -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+  <div class="grid grid-cols-3 md:grid-cols-5 gap-6 p-25 ">
   <!-- Card 1 -->
   <div class="relative rounded-2xl overflow-hidden">
-    <img src="{{ asset('img/photo.png') }}" alt="1" class="w-full object-cover">
-    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t">
-      <p class="text-white font-bold text-m text-center pb-4">Paket Wisata Bandung</p>
+    <a href="{{ route('BandungPrivate') }}">
+      <img 
+        src="{{ asset('img/bandung.png') }}" 
+        alt="Paket Wisata Bandung"
+        class="w-full h-full object-cover"
+      >
+    </a>
+    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
+      <p class="text-white font-bold text-m text-center pb-4">
+        Paket Wisata Bandung
+      </p>
     </div>
   </div>
+    
 
   <!-- Card 2 -->
   <div class="relative rounded-2xl overflow-hidden">
-    <img src="{{ asset('img/photo.png') }}" alt="2" class="w-full object-cover">
-    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t">
-      <p class="text-white font-bold text-m text-center pb-4">Paket Wisata Lembang</p>
+    <a href="{{ route('LembangPrivate') }}">
+      <img 
+        src="{{ asset('img/lembang.jpg') }}" 
+        alt="Paket Wisata Lembang"
+        class="w-full h-full object-cover"
+      >
+    </a>
+
+    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
+      <p class="text-white font-bold text-m text-center pb-4">
+        Paket Wisata Lembang
+      </p>
     </div>
   </div>
 
+  
+
   <!-- Card 3 -->
   <div class="relative rounded-2xl overflow-hidden">
-    <img src="{{ asset('img/photo.png') }}" alt="3" class="w-full object-cover">
-    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t">
-      <p class="text-white font-bold text-m text-center pb-4">Paket Wisata Ciwidey</p>
+    <a href="{{ route('CiwideyPrivate') }}">
+      <img 
+        src="{{ asset('img/ciwidey.jpg') }}" 
+        alt="Paket Wisata Ciwidey"
+        class="w-full h-full object-cover"
+      >
+    </a>
+    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
+      <p class="text-white font-bold text-m text-center pb-4">
+        Paket Wisata Ciwidey
+      </p>
     </div>
   </div>
 
   <!-- Card 4 -->
   <div class="relative rounded-2xl overflow-hidden">
-    <img src="{{ asset('img/photo.png') }}" alt="4" class="w-full object-cover">
-    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t">
-      <p class="text-white font-bold text-m text-center pb-4">Paket Wisata Pangalengan</p>
+    <a href="{{ route('PangalenganPrivate') }}">
+      <img 
+        src="{{ asset('img/pangalengan.jpg') }}" 
+        alt="Paket Wisata Pangalengan"
+        class="w-full h-full object-cover"
+      >
+    </a>
+    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
+      <p class="text-white font-bold text-m text-center pb-4">
+        Paket Wisata Pangalengan
+      </p>
     </div>
   </div>
-</div>
 
+  <!-- Card 5 -->
+  <div class="relative rounded-2xl overflow-hidden">
+    <a href="{{ route('OffroadPrivate') }}">
+      <img src="{{ asset('img/photo.png') }}" alt="5" class="w-full object-cover">
+    <div class="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t">
+      <p class="text-white font-bold text-m text-center pb-4">Paket Wisata Offroad Lembang</p>
+    </div>
+    </a>
+  </div>
+
+  
   </div>
 
     <!-- Private Trip Info -->
-    <section class="bg-yellow-500 text-center py-12 md:py-16">
+    <section class="bg-emas text-center py-12 md:py-16">
         <h2 class="text-4xl md:text-5xl font-bold text-white">Private Trip</h2>
         <div class="w-32 md:w-48 h-1 bg-white mx-auto mt-3 rounded-full"></div>
         <p class="mt-3 text-white text-lg md:text-xl">Liburan lebih fleksibel & personal</p>
     </section>
 
     <!-- Deskripsi Private Trip -->
-    <section class="bg-gray-100 py-8">
+    <section class="bg-[#e3d8c6] py-8">
         <div class="max-w-screen-xl mx-auto px-4">
             <div class="flex flex-wrap justify-center gap-4 md:gap-8 text-gray-700 font-semibold text-center">
-                <button class="px-4 py-2 rounded-full border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">EduTrip</button>
-                <button class="px-4 py-2 rounded-full border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">Corporate</button>
-                <button class="px-4 py-2 rounded-full border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">Family</button>
-                <button class="px-4 py-2 rounded-full border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">Religius</button>
-                <button class="px-4 py-2 rounded-full border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white transition duration-300">Cultural & Historical</button>
+                <button class="px-4 py-2 rounded-full border border-[#ae5238] text-[#ae5238] hover:bg-[#ae5238] hover:text-white transition duration-300">EduTrip</button>
+                <button class="px-4 py-2 rounded-full border border-[#ae5238] text-[#ae5238] hover:bg-[#ae5238] hover:text-white transition duration-300">Corporate</button>
+                <button class="px-4 py-2 rounded-full border border-[#ae5238] text-[#ae5238] hover:bg-[#ae5238] hover:text-white transition duration-300">Family</button>
+                <button class="px-4 py-2 rounded-full border border-[#ae5238] text-[#ae5238] hover:bg-[#ae5238] hover:text-white transition duration-300">Religius</button>
+                <button class="px-4 py-2 rounded-full border border-[#ae5238] text-[#ae5238] hover:bg-[#ae5238] hover:text-white transition duration-300">Cultural & Historical</button>
             </div>
         </div>
     </section>

@@ -2,7 +2,7 @@
 
 @section('content')
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css']) 
-<body class="bg-gray-100 font-poppins">
+<body class="bg-[#e3d8c6] font-poppins">
     <div class="w-full">
 
         <!-- Carousel utama -->
@@ -56,7 +56,7 @@
       
             <!-- Judul -->
             <div class="text-center md:text-left">
-              <p class="font-sans text-base sm:text-lg">Travel With</p>
+              <p class="font-poppins text-base sm:text-lg">Travel With</p>
               <h1 class="font-extrabold text-2xl sm:text-3xl md:text-4xl text-black drop-shadow-md mb-2">ArsyGo</h1>
               <div class="w-20 border-b-2 border-yellow-500 mx-auto md:mx-0"></div>
             </div>
@@ -69,14 +69,14 @@
                 {{ request()->routeIs('HotelTransport') 
                    ? 'bg-yellow-500 text-white rounded-full' 
                    : 'text-gray-600' }}">
-               Akomodasi
+               Penginapan
              </a>
            
              <!-- Sewa Transportasi -->
              <a href="{{ route('Transport') }}" 
                 class="flex items-center justify-center flex-1 sm:w-50 md:w-60 px-4 sm:px-6 py-3 font-semibold text-center 
                 {{ request()->routeIs('Transport') 
-                   ? 'bg-yellow-500 text-white rounded-full' 
+                   ? 'bg-[#d39932] text-white rounded-full' 
                    : 'text-gray-600' }}">
                Sewa Transportasi
              </a>
@@ -240,7 +240,7 @@
 
                         <!-- Harga di atas Tombol -->
                         <div class="flex flex-col items-end justify-center gap-2">
-                            <span class="font-bold text-lg text-yellow-500">
+                            <span class="font-bold text-lg text-yellow-500 mb-2 mr-2">
                                 Rp {{ number_format($v->price,0,',','.') }}
                             </span>
                             <a href="{{ route('user.transport.booking.form', $v->id) }}" 

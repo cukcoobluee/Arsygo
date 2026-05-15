@@ -25,7 +25,11 @@ class HotelBooking extends Model
         'check_out',
         'tipe_kamar',
         'catatan',
-        'status'
+        'status',
+        'payment_status',
+        'payment_method',
+        'payment_amount',
+        'payment_proof',
     ];
 }
 

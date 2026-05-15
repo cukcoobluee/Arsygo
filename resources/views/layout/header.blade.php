@@ -10,7 +10,7 @@
   <title>Arsygo</title>
 </head>
 
-@vite(['resources/css/user/header.css', 'resources/js/header.js'])
+@vite(['resources/css/header.css', 'resources/js/header.js'])
 
 <style>
   /* Link default */
@@ -22,14 +22,14 @@
 
 /* Hover */
 .nav-link:hover {
-  color: #facc15; /* kuning hover */
+  color: #d39932; /* kuning hover */
   font-family: poppins;
 }
 
 /* Link aktif (halaman sekarang) */
 .active-link {
   font-family: poppins;
-  color: #facc15 !important; /* kuning */
+  color: #d39932; /* kuning */
   font-weight: 500;
 }
 
@@ -53,8 +53,8 @@
        <a href="{{ route('user.kalender') }}" 
         class="hidden lg:flex nav-link items-center font-poppins font-medium text-sm sm:text-base px-3 sm:px-4 py-2 transition 
         {{ Route::currentRouteName() == 'user.kalender' ? 'active-link' : 'nav-link-transparent hover:text-yellow-400' }}">
-        <img src="{{ asset('img/calendar.png') }}" class="w-5 sm:w-6 md:w-7 mr-1" alt="calendar">
-          <span class="hidden sm:inline">Kegiatan Kami</span>
+        <i class="fas fa-calendar-alt mr-1 text-[#d39932]"></i>
+          <span class="hidden sm:inline">Workshop</span>
       </a>
 
         <!-- Hamburger -->

@@ -26,7 +26,7 @@ class TransportReservationController extends Controller
         $reservation = TransportReservation::create($data);
 
         // WA pesan - ubah nomor admin di bawah sesuai kebutuhan (tanpa +)
-        $adminPhone = '6281285448464';
+        $adminPhone = '628122016796';
         $text = "Halo ArsyGo,%0A%0A".
                 "Saya ingin sewa kendaraan:%0A".
                 "Nama: ".rawurlencode($reservation->full_name)."%0A".

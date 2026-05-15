@@ -31,7 +31,7 @@ class BookingController extends Controller
         $booking = \App\Models\Booking::create($validated);
 
         // nomor WhatsApp admin (ganti sesuai nomor kamu, tanpa +)
-        $adminWA = "6281285448464";
+        $adminWA = "628122016796";
 
         // isi pesan auto chat
         $pesan = "Hallo Arsygo Tour and Travel 👋%0A"

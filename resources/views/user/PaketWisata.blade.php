@@ -2,7 +2,7 @@
 
 @section('content')
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css']) 
-<body class="bg-gray-100 font-poppins">
+<body class="bg-[#e3d8c6] font-poppins">
     <div class="w-full">
 
 
@@ -29,7 +29,7 @@
         <!-- tombol navigasi -->
         <!-- Tombol Prev -->
         <button id="prevBtn" 
-        class="absolute top-1/2 left-14 -translate-y-1/2 bg-transparent border-2 border-yellow-500 w-8 h-8 flex items-center justify-center rounded-full shadow-lg transition hover:bg-yellow-500/10">
+        class="absolute top-1/2 left-14 -translate-y-1/2 bg-transparent border-2 border-yellow-500 w-8 h-8 flex items-center justify-center rounded-full shadow-lg transition hover:#d39932/10">
         <svg xmlns="http://www.w3.org/2000/svg" 
             class="w-6 h-6 text-yellow-500" fill="none" 
             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -39,7 +39,7 @@
 
         <!-- Tombol Next -->
         <button id="nextBtn" 
-        class="absolute top-1/2 right-14 -translate-y-1/2 bg-transparent border-2 border-yellow-500 w-8 h-8 flex items-center justify-center rounded-full shadow-lg transition hover:bg-yellow-500/10">
+        class="absolute top-1/2 right-14 -translate-y-1/2 bg-transparent border-2 border-yellow-500 w-8 h-8 flex items-center justify-center rounded-full shadow-lg transition hover:#d39932/10">
         <svg xmlns="http://www.w3.org/2000/svg" 
             class="w-6 h-6 text-yellow-500" fill="none" 
             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -57,7 +57,7 @@
   
         <!-- Judul -->
         <div class="text-center md:text-left">
-          <p class="font-sans text-base sm:text-lg">Travel With</p>
+          <p class="font-poppins text-base sm:text-lg">Travel With</p>
           <h1 class="font-extrabold text-2xl sm:text-3xl md:text-4xl text-black drop-shadow-md mb-2">ArsyGo</h1>
           <div class="w-20 border-b-2 border-yellow-500 mx-auto md:mx-0"></div>
         </div>
@@ -65,11 +65,11 @@
         <!-- Toggle Button -->
         <div class="flex w-full sm:w-auto bg-gray-200 rounded-full shadow-md overflow-hidden">
           <a href="{{ route('PaketWisata') }}" 
-            class="px-4 sm:px-6 py-2 bg-yellow-500 text-white font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-l-full">
+            class="px-4 sm:px-6 py-2 bg-[#d39932] text-white font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-full">
             Open Trip
           </a>
           <a href="{{ route('PrivateTrip') }}" 
-            class="px-4 sm:px-6 py-2 text-gray-500 font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-r-full">
+            class="px-4 sm:px-6 py-2 text-gray-500 font-semibold w-1/2 sm:w-40 md:w-52 text-center rounded-full">
             Private Trip
           </a>
         </div>
@@ -79,22 +79,42 @@
   </div>
   
     
-        <!-- Grid Card -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 w-1/2 mx-auto mb-6">
-           <!-- Card -->
-        <div class="bg-yellow-500 rounded-xl shadow-md text-center p-4 relative cursor-pointer" onclick="openPopup()">
-            <p class="text-white font-bold text-lg">1 DAY TRIP</p>
-            <img src="{{ asset('img/card-wisata.png') }}" alt="Paket Wisata" class="w-full h-40 object-cover rounded-lg my-3">
-            <p class="font-semibold text-white">Paket Wisata Bandung</p>
-            <p class="text-white text-sm flex items-center justify-center mt-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-                20 September 2025
-            </p>
-            <p class="text-emerald-600 font-bold mt-2">AVAILABLE 2 SLOT!!</p>
-        </div>
+        <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
+  <!-- Card -->
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+    <img src="/img/bandung.png" alt="Bandung" class="w-full h-48 object-cover">
+    <div class="p-5">
+      <p class="text-gray-500 text-sm mb-1">20 September 2025</p>
+      <h3 class="text-lg font-bold text-gray-800 mb-3">One Day Trip Bandung</h3>
+      <div class="flex items-center justify-between gap-3">
+        <span class="bg-green-100 text-green-700 font-semibold px-4 py-2 rounded-lg text-sm">
+          AVAILABLE 2 SLOT!!
+        </span>
+        <a href="#" class="bg-[#d39932] hover:bg-[#F9A825] text-white font-semibold px-4 py-2 rounded-lg text-sm">
+          View Details
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card kedua -->
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition duration-300">
+    <img src="/img/lembang.jpg" alt="Lembang" class="w-full h-48 object-cover">
+    <div class="p-5">
+      <p class="text-gray-500 text-sm mb-1">20 September 2025</p>
+      <h3 class="text-lg font-bold text-gray-800 mb-3">One Day Trip Lembang</h3>
+      <div class="flex items-center justify-between gap-3">
+        <span class="bg-red-100 text-red-700 font-semibold px-4 py-2 rounded-lg text-sm">
+          NOT AVAILABLE
+        </span>
+        <a href="#" class="bg-[#d39932] hover:bg-[#F9A825] text-white font-semibold px-4 py-2 rounded-lg text-sm">
+          View Details
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
             <!-- Popup -->
             <div id="popup" class="fixed inset-0 hidden items-center justify-center shadow-md z-50">
@@ -153,7 +173,7 @@
 
                     <!-- Tombol -->
                     <div class="flex justify-center mt-4">
-                        <a href="{{ route('formulir.create') }}" class="bg-yellow-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-yellow-600 transition">
+                        <a href="{{ route('formulir.create') }}" class="#d39932 text-white font-bold py-2 px-6 rounded-lg hover:bg-yellow-600 transition">
                             Daftar Sekarang
                         </a>
                     </div>
@@ -175,50 +195,7 @@
             </script>
 
     
-            <!-- Card Not Available -->
-            <div class="bg-yellow-500 rounded-xl shadow-md text-center p-4">
-                <p class="text-white font-bold text-lg">1 DAY TRIP</p>
-                <img src="{{ asset('img/card-wisata.png') }}" alt="Paket Wisata" class="w-full h-40 object-cover rounded-lg my-3">
-                <p class="font-semibold text-white">Paket Wisata Lembang</p>
-                <p class="text-white text-sm flex items-center justify-center mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    20 September 2025
-                </p>
-                <p class="text-red-700 font-bold mt-2">NOT AVAILABLE</p>
-            </div>
-    
-            <!-- Card not available 2 -->
-            <div class="bg-yellow-500 rounded-xl shadow-md text-center p-4">
-                <p class="text-white font-bold text-lg">1 DAY TRIP</p>
-                <img src="{{ asset('img/card-wisata.png') }}" alt="Paket Wisata" class="w-full h-40 object-cover rounded-lg my-3">
-                <p class="font-semibold text-white">Paket Wisata Lembang</p>
-                <p class="text-white text-sm flex items-center justify-center mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    20 September 2025
-                </p>
-                <p class="text-red-700 font-bold mt-2">NOT AVAILABLE</p>
-            </div>
-    
-            <!--Card not available 2 -->
-            <div class="bg-yellow-500 rounded-xl shadow-md text-center p-4">
-                <p class="text-white font-bold text-lg">1 DAY TRIP</p>
-                <img src="{{ asset('img/card-wisata.png') }}" alt="Paket Wisata" class="w-full h-40 object-cover rounded-lg my-3">
-                <p class="font-semibold text-white">Paket Wisata Lembang</p>
-                <p class="text-white text-sm flex items-center justify-center mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                    </svg>
-                    20 September 2025
-                </p>
-                <p class="text-red-700 font-bold mt-2">NOT AVAILABLE</p>
-            </div>
+            
         </div>
     </div>
     

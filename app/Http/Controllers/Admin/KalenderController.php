@@ -19,7 +19,7 @@ class KalenderController extends Controller
         return view('admin.kalender.create');
     }
 
-    public function store(Request $request)
+    public function storeEvent(Request $request)
     {
         $data = $request->validate([
             'month' => 'required|string',

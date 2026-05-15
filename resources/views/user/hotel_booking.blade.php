@@ -1,21 +1,10 @@
 @section('content')
 @vite(['resources/css/user/home.css','resources/js/home.js','resources/css/header.css'])
 
-<div class="container mx-auto px-6 py-10 max-w-xl">
-
-    {{-- Tombol Kembali --}}
-    <div class="mb-4">
-        <a href="{{ route('HotelTransport') }}" 
-           class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-700 rounded-lg shadow hover:bg-gray-300 transition">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-            </svg>
-            Kembali
-        </a>
-    </div>
-
-    <h2 class="text-3xl font-bold mb-6 text-amber-900 text-center">Booking Hotel</h2>
-
+<body class="bg-[#e3d8c6] font-poppins">
+<div class="container mx-auto px-6 py-12">
+    <div class="max-w-lg mx-auto bg-gradient-to-r from-[#d39932] to-[#225d65] text-white rounded-t-xl p-8 mb-0">
+        <h2 class="text-3xl font-bold mb-4 text-center drop-shadow-lg">🏨Booking Hotel🏨</h2>
     <form id="bookingForm" action="{{ route('hotel.booking.store', $hotel_id) }}" method="POST" class="bg-white p-8 rounded-xl shadow-lg">
         @csrf
         <div class="mb-4">

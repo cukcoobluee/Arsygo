@@ -15,19 +15,19 @@ body {
 
 /* Navbar saat discroll */
 .navbar-solid {
-  background-color: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #225d65;
+  box-shadow: 0 2px 8px #e3d8c6;
 }
 
 /* Link teks saat transparan */
 .nav-link-transparent {
-  color: white;
+  color: #ffffff; 
   transition: color 0.3s ease;
 }
 
 /* Link teks saat navbar solid */
 .nav-link-solid {
-  color: black; /* warna emas Tailwind */
+  color: #e3d8c6; 
   transition: color 0.3s ease;
 }
 
